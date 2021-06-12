@@ -1,5 +1,5 @@
 .banner {
-    background: url('https://wallpaperaccess.com/full/2703652.png');
+    /* background: url('https://image.tmdb.org/t/p/w500/Afp8OhiO0Ajb3NPoCBvfu2pqaeO.jpg'); */
     height: 70vh;
     background-size: cover;
     position: relative;
@@ -9,12 +9,14 @@
     position: absolute;
     bottom: 50px;
     left: 20px;
+    padding-bottom: 16px;
 }
 
 .title {
     color: white;
     font-size: 3rem;
     font-weight: bold;
+    padding-bottom: 16px;
 }
 
 .description {
@@ -35,14 +37,14 @@
     font-weight: 700;
     padding: 10px 15px;
     color: white;
-    background: rgba(236, 10, 10, 0.5);
+    background: rgba(34, 29, 29, 0.5);
     border: none;
     outline: none;
     border-radius: 5px;
 }
 
 .button:hover {
-    color: red;
+    color: rgba(64, 60, 60, 0.5);
     background: white;
     cursor: pointer;
 }
