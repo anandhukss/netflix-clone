@@ -53,7 +53,7 @@ function RowPost(props) {
           return (
             <img
               key={index}
-              onMouseClick={() => {
+              onClick={() => {
                 movieHandler(obj.id);
               }}
               className={props.isSmall ? "small-poster" : "poster"}
