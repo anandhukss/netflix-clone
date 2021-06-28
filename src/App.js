@@ -17,12 +17,13 @@ function App() {
     { title: "Netflix originals", url: originalsUrl },
     { title: "Action", isSmall: true, url: actionUrl },
     { title: "Comedy", isSmall: true, url: comedyUrl },
-
+    { title: "Horror", isSmall: true, url: horrorUrl },
+    { title: "Series", isSmall: true, url: documentUrl },
     { title: "Romance", isSmall: true, url: romanceUrl },
 
-    { title: "Document", isSmall: true, url: documentUrl },
+    
 
-    { title: "Horror", isSmall: true, url: horrorUrl },
+    
   ];
 
   return (

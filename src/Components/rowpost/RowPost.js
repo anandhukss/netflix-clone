@@ -3,6 +3,7 @@ import { apiKey, imageUrl } from "../../constants/constants";
 import axios from "axios";
 import "./RowPost.css";
 import YouTube from "react-youtube";
+import ReactTooltip from 'react-tooltip';
 
 function RowPost(props) {
   const [youtube, setYoutube] = useState();
@@ -15,27 +16,39 @@ function RowPost(props) {
   }, []);
 
   let movieHandler = (id) => {
-    let url=`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
-    axios.get(url).then((response)=>{
-      let videoKey=response.data.results[0]
-      if(videoKey){
-        setYoutube(<YouTube  videoId={videoKey?videoKey.key:"SqSiUVUvVCE"} opts={ {height: '390',width: '100%', playerVars: {
-          // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
-        },}} />)
-      }else{
-        setYoutube(<h1 className="alert">OOPS!! video not found</h1>)
-      }
-   
-    }).catch(()=>{
-      setYoutube(<h1 className="alert">OOPS!! video not found</h1>)
-    });
+    let url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
+    axios
+      .get(url)
+      .then((response) => {
+        let videoKey = response.data.results[0];
+        if (videoKey) {
+          setYoutube(
+            <YouTube
+              videoId={videoKey ? videoKey.key : "SqSiUVUvVCE"}
+              opts={{
+                height: "390",
+                width: "100%",
+                playerVars: {
+                  autoplay: 1,
+                },
+              }}
+            />
+          );
+        } else {
+          setYoutube(<h1 className="alert">OOPS!! video not found</h1>);
+        }
+      })
+      .catch(() => {
+        setYoutube(<h1 className="alert">OOPS!! video not found</h1>);
+      });
   };
 
   return (
     <div className="row">
+     
       <h2>{props.title}</h2>
-      <div className="row-posters">
+      <div data-tip="Click to watch trailer" className="row-posters">
+      <ReactTooltip />
         {movies.map((obj, index) => {
           return (
             <img
@@ -47,6 +60,7 @@ function RowPost(props) {
               src={obj ? imageUrl + obj.backdrop_path : ""}
               alt=""
             />
+            
           );
         })}
       </div>
